@@ -2,27 +2,629 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" >
-
+<!-- og -->
+<meta property="og:site_name" content="oxoweb作品" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="oxoweb作品"/>
+<meta property="og:description" content="oxoweb作品描述"/>
+<meta property="og:url" content="https://oxoweb.github.io/index.html" />
+<meta property="og:image" content="https://oxoweb.github.io/webimg/fbpic.png" />
 <meta charset="utf-8">
-<title></title>
-
+<title>oxoweb作品</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
+.film {
+	margin: 0 auto;
+	padding: 0 0 6rem
+}
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide {
+	position: relative;
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.swiper-slide h3 {
+	position: absolute;
+	color: white;
+	font-size: 10rem;
+	font-family: "Parisienne", cursive;
+}
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 30rem;
+	object-fit: cover;
+}
+#c {
+	background: #cfb177
+}
+.gantt {
+	margin: 0 auto;
+}
+.item-title {
+	text-align: left;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #cfb177
+}
+.item {
+	font-size: 2rem;
+	font-weight: 500;
+	color: #555555;
+	text-align: center;
+}
+.remark {
+	font-size: 1.2rem
+}
+.flex .list {
+	width: 100%
+}
+.icon-box {
+	background: #cfb177;
+	margin: 0 auto;
+	border-radius: 2rem;
+	display: inline-block;
+	padding: .5rem 2rem;
+	box-shadow: 0.2rem 0.3rem 0 #a9905f;
+	color: white;
+	text-decoration: none;
+	margin: 1rem 0 0;
+}
+.item-line {
+	width: 75%;
+	background: #e7e7e7;
+	border-radius: 2rem;
+	position: relative
+}
+.item-line:before {
+	content: "";
+	display: inline-block;
+	background: #cfb177;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 66.6%;
+	height: 100%;
+	border-radius: 2rem 0 0 2rem
+}
+.list:nth-of-type(1) .item-line:before {
+	width: 33.3%
+}
+.list:nth-last-of-type(1) .item-line:before {
+	width: 100%;
+	border-radius: 2rem;
+}
+.item-title, .item {
+	width: 25%
+}
+.flex .list .item {
+	text-align: left;
+}
+.flex .list {
+	width: 100%;
+	padding: 4rem 0;
+	border-bottom: .1rem solid #e7e7e7;
+}
+.material-symbols-outlined.fill {
+	font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24
+}
+.gantt .remark {
+	font-size: 1.6rem;
+	text-align: left;
+	padding: 2rem 2rem 0;
+	line-height: 2
+}
+.gantt .remark li {
+	list-style-type: disc
+}
+.gallery .section1-3 {
+	position: relative;
+	aspect-ratio: 5 / 3;
+	margin: 0 0 2rem;
+	cursor: pointer
+}
+.gallery .section1-3 img {
+	width: 100%;
+	height: 100%;
+}
+.gallery .mask {
+	width: calc(100% - 4rem);
+	height: calc(50% - 4rem);
+	position: absolute;
+	z-index: 9;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+	color: white;
+	display: flex;
+	align-items: flex-end;
+	padding: 2rem;
+	opacity: 0;
+	transition: 0.5s ease-out
+}
+.gallery .section1-3:hover .mask {
+	opacity: 1
+}
 
+.detail p {
+	padding: 0 0 1.6rem
+}
+.detail p span {
+	font-size: 2.2rem
+}
+
+.remark.list {
+	font-size: 1.6rem;
+	padding: 0 5rem 0
+}
+.remark.list ul {
+	margin: 2rem 0;
+}
+.remark.list li {
+	list-style-type: disc
+}
+
+.contact {
+	margin: 0 auto;
+	padding: 0;
+}
+.contact li {
+	text-align: left;
+	padding: 1rem 0
+}
+.contact input {
+	padding: .5rem
+}
+.time-g {
+	padding: 1rem 0 0 1rem
+}
+.time-g label {
+	display: flex;
+	align-items: center;
+}
+.contact textarea {
+	width: 95%;
+	min-height: 10rem;
+	padding: .5rem
+}
+.map {
+	width: 50%
+}
+.map iframe {
+	width: 95%
+}
+/* time */
+
+.time {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 1.8rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/* Hide the browser's default checkbox */
+.time input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	left: 0;
+	height: 2rem;
+	width: 2rem;
+	background-color: #eee;
+}
+/* On mouse-over, add a grey background color */
+.time:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+/* When the checkbox is checked, add a blue background */
+.time input:checked ~ .checkmark {
+	background-color: #505050;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+/* Show the checkmark when checked */
+.time input:checked ~ .checkmark:after {
+	display: block;
+}
+/* Style the checkmark/indicator */
+.time .checkmark:after {
+	right: 0;
+	left: 0;
+	top: .2rem;
+	bottom: 0;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	margin: 0 auto;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#submit {
+	width: 100%
+}
+
+@media (max-width:1200px) {
+section {
+	padding: 0 2rem 2rem
+}
+nav li span {
+	display: block!important
+}
+}
+
+@media (max-width:768px) {
+html {
+	font-size: 8px
+}
+nav li span {
+	display: inline-block!important
+}
+.header-title {
+	max-width: calc(100% - 10rem)
+}
+nav li {
+	width: calc(33.3% - 4rem);
+}
+
+.gantt {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly
+}
+.gantt .flex.itemgroup, .gantt .flex.listgroup {
+	width: calc(50% - 2rem)
+}
+.gantt .flex.itemgroup {
+	display: inline-block
+}
+.gantt .flex.listgroup {
+	justify-content: flex-start;
+	flex-wrap: nowrap;
+	margin-top: 4rem;
+}
+.gantt .remark {
+	padding: 0
+}
+.item-line {
+	width: 35%;
+	height: calc(100% - 7rem);
+	margin: 0 auto;
+	margin-top: 2rem;
+}
+.flex .list {
+	width: 100%;
+	display: block;
+	padding: 0;
+	border-bottom: unset;
+}
+.item-line:before {
+	width: 100%;
+	height: calc(50% + 4rem);
+	border-radius: 2rem 2rem 0 0;
+}
+.list:nth-of-type(1) .item-line:before {
+	width: 100%;
+	height: calc(33.3% + 4rem)
+}
+.list:nth-last-of-type(1) .item-line:before {
+	height: 100%
+}
+.itemgroup .item {
+	text-align: left;
+	padding: 2rem 0;
+}
+.flex .list .item {
+	width: unset;
+	text-align: center;
+}
+.item-title, .item {
+	width: unset
+}
+}
+
+@media (max-width:576px) {
+nav li {
+	width: calc(50% - 4rem);
+	background: white;
+}
+section h3 {
+	font-size: 3.5rem
+}
+.film iframe {
+	width: 100%
+}
+.gallery .mask {
+	width: calc(100% - 2rem);
+	height: calc(100% - 2rem);
+	padding: 1rem;
+	font-size: 1.3rem
+}
+
+.box-icon {
+	margin: 0
+}
+
+.item-line {
+	height: calc(100% - 10rem);
+}
+.map {
+	width: 95%;
+	margin: 2rem auto 0
+}
+}
 </style>
+<script src="js/jquery.min.js" language="javascript"></script> 
+<!--頁面滑動--> 
 
+<script>
+// JavaScript Document
+
+$(function(){
+		$("#gotop").hide();	
+		$(function(){
+            $(window).scroll(function(){
+                if($(this).scrollTop()>1){//当window的scrolltop距离大于1时，go to top按钮淡出，反之淡入
+                    $("#gotop").fadeIn();
+                  
+                } else {
+                    $("#gotop").fadeOut();
+                   
+                }
+            });
+        });
+});
+      
+
+$(function(){
+	$('#gotop').click(function(){
+            $("html,body").animate({scrollTop:0},800);//點擊go to top按钮时，以800的速度回到頂部，800可以根據你的需求修改
+            return false;
+        });
+
+	$('#nav01').click(function(){
+		$('html,body').animate({scrollTop:$('#a').offset().top -50}, 800);
+	});	
+	$('#nav02').click(function(){
+		$('html,body').animate({scrollTop:$('#b').offset().top -50}, 800);
+	});	
+		$('#nav06').click(function(){
+		$('html,body').animate({scrollTop:$('#c').offset().top -50}, 800);
+	});		
+	
+
+		
+});
+
+
+
+	</script> 
 
 </head>
 
 <body>
 <div class="wrapper">
-
-  <a href="javascript:;" id="gotop"></a>
-  <header>
-    <div class="container">測試頁面</div>
+  <div id="logo-header">
+    <div class="container flex">
+      <div class="logo"><a href="https://oxoweb.github.io/" target="_blank"><img src="https://fakeimg.pl/200x60/?text=LOGO&font=lobster"></a></div>
+      <div class="social_media_logo"><a href="javascript:;" target="_blank"><img src="https://img.icons8.com/material/48/facebook--v1.png" alt="facebook--v1"/></a><a href="javascript:;" target="_blank"><img src="https://img.icons8.com/material/96/instagram-new--v1.png" alt="instagram-new--v1"></a><a href="javascript:;" target="_blank"><img src="https://img.icons8.com/ios-filled/50/line-me.png" alt="line-me"></a></div>
+    </div>
+    <nav>
+      <div class="container flex">
+        <li id="nav01">About<span class="material-symbols-outlined arrow"> chevron_right </span></li>
+        <li id="nav02">Service<span class="material-symbols-outlined"> chevron_right </span></li>
+        <li id="nav03">Price List<span class="material-symbols-outlined"> chevron_right </span></li>
+        <li id="nav04">Event<span class="material-symbols-outlined"> chevron_right </span></li>
+        <li id="nav05">Wedding Propose<span class="material-symbols-outlined"> chevron_right </span></li>
+        <li id="nav06">Contact<span class="material-symbols-outlined"> chevron_right </span></li>
+      </div>
+    </nav>
+  </div>
+  <a href="javascript:;" id="gotop"><span class="material-symbols-outlined fill"> arrow_circle_up </span></a>
+  <header> 
+    
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h3>About  Wedding</h3>
+          <img src="https://picsum.photos/2000/370?random=1"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/2000/370?random=2"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/2000/370?random=3"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
   </header>
-
+  <section id="a">
+    <div class="w100">
+      <h3>What we believe<br>
+        信念
+        <div class="content">
+          <p>一場幸福的婚禮，</p>
+          <p>減塑佈置也可以充滿巧思，</p>
+          <p>電子喜帖邀請也可以心意滿滿，</p>
+          <p>永續婚禮也可以精緻周到。</p>
+        </div>
+      </h3>
+    </div>
+    <div class="film">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/5bAJPYsnP4A?si=yU2kpdfNpLshnot1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="gallery flex">
+      <div class="section1-3">
+        <div class="mask">
+          <p>運用自然素材取代紙張或塑膠</p>
+        </div>
+        <img src="https://picsum.photos/500/370?random=1"></div>
+      <div class="section1-3">
+        <div class="mask">
+          <p>客製化場地氛圍需求</p>
+        </div>
+        <img src="https://picsum.photos/500/370?random=2"></div>
+      <div class="section1-3">
+        <div class="mask">
+          <p>減少廢棄的buffet令人垂涎三尺</p>
+        </div>
+        <img src="https://picsum.photos/500/370?random=3"></div>
+      <div class="section1-3">
+        <div class="mask">
+          <p>電子喜帖、客製喜帖減少紙張及運送</p>
+        </div>
+        <img src="https://picsum.photos/500/370?random=4"></div>
+      <div class="section1-3">
+        <div class="mask">
+          <p>神奇的花藝治療師讓美麗延續久久</p>
+        </div>
+        <img src="https://picsum.photos/500/370?random=5"></div>
+      <div class="section1-3">
+        <div class="mask">
+          <p>饌玉炊金後只有滿足的味蕾，零垃圾</p>
+        </div>
+        <img src="https://picsum.photos/500/370?random=6"></div>
+    </div>
+  </section>
+  <section id="b">
+    <div class="container">
+      <h3>Service<br>
+        服務項目</h3>
+      <div class="gantt">
+        <div class="flex itemgroup">
+          <div class="item-title">
+            <p>婚宴方案</p>
+          </div>
+          <div class="item">
+            <p>$30,000</p>
+            <a href="javascript:;" class="icon-box hover_scale zoom_out" target="_blank">即刻洽詢<span class="material-symbols-outlined"> arrow_right_alt </span></a></div>
+          <div class="item">
+            <p>$58,000</p>
+          </div>
+          <div class="item">
+            <p>$78,000</p>
+            <p class="remark">※ 婚禮顧問新人享9折優惠 </p>
+          </div>
+        </div>
+        <div class="flex listgroup">
+          <div class="flex list">
+            <div class="item">
+              <p>迎娶帶領</p>
+            </div>
+            <div class="item-line"></div>
+          </div>
+          <div class="flex list">
+            <div class="item">
+              <p>半日婚禮顧問</p>
+            </div>
+            <div class="item-line"></div>
+          </div>
+          <div class="flex list">
+            <div class="item">
+              <p>整日婚禮顧問</p>
+            </div>
+            <div class="item-line"></div>
+          </div>
+        </div>
+        <div class="remark">
+          <li>依中華民國酒類法規，參加者須為年滿 18 歲之成年人，若參加者經查未滿 18 歲，無條件取消參加資格，也無法讓嬰幼兒孩童陪同參與，敬請見諒。</li>
+          <li>於本活動網站報名後，請於指定日期前完成繳費，方完成報名手續。如未依時間內繳費，主辦單位將不予以保留名額。</li>
+          <li>參加者於參加本活動之同時，即同意接受本活動注意事項之規範。</li>
+          <li>若遭遇颱風、天災等不可抗力因素，活動將取消或延期舉辦，日期另行通知，不便之處敬請見諒！</li>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="c">
+    <div class="container">
+      <h3>聯絡我們
+        <p>Let's Make Your Event Memorable!</p>
+      </h3>
+      <form>
+        <div class="  flex">
+          <ul class="contact">
+            <li>
+              <label for="name">聯絡姓名</label>
+              <input type="text" id="name" name="name" placeholder="Your name">
+            </li>
+            <li>
+              <label for="phone">聯絡電話</label>
+              <input type="text" id="phone" name="phone" placeholder="Phone Contact">
+            </li>
+            <li>
+              <label for="country">方便聯繫時段 （選填）</label>
+              <div class="time-g">
+                <label class="time">10:00～12:00
+                  <input type="checkbox">
+                  <span class="checkmark"></span> </label>
+                <label class="time">13:00～16:00
+                  <input type="checkbox">
+                  <span class="checkmark"></span> </label>
+                <label class="time">18:00～20:00
+                  <input type="checkbox">
+                  <span class="checkmark"></span> </label>
+              </div>
+            </li>
+            <li>
+              <label for="subject">詢問內容</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." ></textarea>
+            </li>
+            <input type="submit" value="送出" id="submit">
+          </ul>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14457.802508740348!2d121.5372562!3d25.0527114!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab5184945d87%3A0x184afc14517d94cf!2z5Y-w5YyX5ryi5pmu6aCT6YWS5bqX!5e0!3m2!1szh-TW!2stw!4v1713494775757!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
 </div>
-<footer> ~Copyright © 2024~ oxoweb</footer>
-</body>
+<footer>© 2024oxoweb. All rights reserved. 版權所有，請勿擅自轉貼節錄</footer>
 
+<!-- Swiper JS --> 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+
+<!-- Initialize Swiper --> 
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      cssMode: true,
+/*      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },*/
+      pagination: {
+        el: ".swiper-pagination",
+		   clickable: true,
+      },
+		
+/*		autoplay:true,*/
+		loop:true,
+      mousewheel: true,
+      keyboard: true,
+    });
+  </script>
+</body>
 </html>
